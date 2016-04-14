@@ -5,13 +5,14 @@ import reducers from '../reducers';
 import { routerReducer } from 'react-router-redux';
 import { initalStates } from '../reducers';
 
-export default props => {
+export default (props, railsContext) => {
   const initialComments = props.comments;
   const { $$commentsState } = initalStates;
   const initialState = {
     $$commentsStore: $$commentsState.merge({
       $$comments: initialComments,
     }),
+    railsContext,
   };
 
   // https://github.com/reactjs/react-router-redux
